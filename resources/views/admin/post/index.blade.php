@@ -2,7 +2,7 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <p>posts</p>
+            <p>Posts</p>
         </div>
     </div>
 @endsection
