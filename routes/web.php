@@ -23,11 +23,12 @@ Route::group(['namespace'=> 'Main'], function(){
 });
 
 Route::group(['namespace'=> 'Admin', 'prefix' => 'admin'], function() {
-    Route::group(['namespace' => 'Main'], function(){
-        Route::get('/', [App\Http\Controllers\Admin\Post\IndexController::class, '__invoke'])->name('posts');;
+    Route::get('/', [App\Http\Controllers\Admin\IndexController::class, '__invoke'])->name('admin.index');
+    Route::group(['namespace' => 'Post', 'prefix'=>'posts'], function(){
+        Route::get('/', [App\Http\Controllers\Admin\Post\IndexController::class, '__invoke'])->name('admin.post.index');
     });
     Route::group(['namespace' => 'Category', 'prefix'=>'categories'], function() {
-        Route::get('/', [App\Http\Controllers\Admin\Category\IndexController::class, '__invoke'])->name('admin.category.index'); 
-        Route::get('/create', [App\Http\Controllers\Admin\Category\CreateController::class, '__invoke'])->name('admin.category.create'); 
+        Route::get('/', [App\Http\Controllers\Admin\Category\IndexController::class, '__invoke'])->name('admin.category.index');
+        Route::get('/create', [App\Http\Controllers\Admin\Category\CreateController::class, '__invoke'])->name('admin.category.create');
     });
 });
