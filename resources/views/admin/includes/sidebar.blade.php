@@ -39,7 +39,7 @@
                 <li class="nav-header">EXAMPLES</li>
                 <li class="nav-item">
                     <a href="{{ route('admin.post.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-align-justify"></i>
+                        <i class="nav-icon fas fa-thumbtack"></i>
                         <p>
                             Posts
                             <span class="badge badge-info right"></span>
@@ -51,6 +51,15 @@
                         <i class="nav-icon fas fa-align-justify"></i>
                         <p>
                             Categories
+                            <span class="badge badge-info right"></span>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.tag.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-tags"></i>
+                        <p>
+                            Tags
                             <span class="badge badge-info right"></span>
                         </p>
                     </a>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <title>Blog</title>
 
     <!-- Google Font: Source Sans Pro -->
@@ -11,9 +11,14 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('dist/css/bootstrap.css') }}">
+
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
+
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+
     <link rel="shortcut icon" href="{{ asset('assets/images/loader.gif') }}" type="image/x-icon">
 
 </head>
@@ -193,6 +198,16 @@
 
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+
+<script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
+
+<script>
+    $(function () {
+        // Summernote
+        $('#summernote').summernote()
+
+    });
+</script>
 
 </body>
 </html>
