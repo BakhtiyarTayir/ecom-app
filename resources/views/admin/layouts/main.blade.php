@@ -13,6 +13,8 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/bootstrap.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
@@ -196,6 +198,10 @@
 <!-- Bootstrap 4 -->
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+
+<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
 
@@ -204,8 +210,16 @@
 <script>
     $(function () {
         // Summernote
-        $('#summernote').summernote()
+        $('#summernote').summernote({
+            height: 300,                 // set editor height
+            minHeight: null,             // set minimum height of editor
+            maxHeight: null,             // set maximum height of editor
+            focus: true                  // set focus to editable area after initializing summernote
+        })
 
+        bsCustomFileInput.init();
+
+        $('.select2').select2()
     });
 </script>
 
