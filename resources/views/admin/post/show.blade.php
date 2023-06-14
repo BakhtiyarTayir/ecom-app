@@ -30,7 +30,7 @@
                         <div class="card">
                             <div class="card-header d-flex align-items-center">
                                 <h3 class="card-title mr-3">{{ $post->title }}</h3>
-                                <a href="{{ route('admin.category.edit', $post->id)  }}"><i class="far fa-edit"></i></a>
+                                <a href="{{ route('admin.post.edit', $post->id)  }}"><i class="far fa-edit"></i></a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0">
