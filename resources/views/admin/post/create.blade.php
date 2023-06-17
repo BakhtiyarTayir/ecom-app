@@ -31,7 +31,7 @@
                               <label for="name" class="form-label">Название</label>
                               <input type="text" name="title" class="form-control" id="name" placeholder="Название" value="{{ old('title') }}">
                                 @error('title')
-                                <div class="text-danger mt-3">Это поля необходимо заполнить {{ $message }}</div>
+                                <div class="text-danger mt-3">{{ $message }}</div>
                                 @enderror
 
                             </div>
@@ -39,7 +39,7 @@
                                 <div class="form-group w-75">
                                     <textarea id="summernote" name="content">{{ old('content') }}</textarea>
                                     @error('content')
-                                        <div class="text-danger mt-3">Это поля необходимо заполнить {{ $message }}</div>
+                                        <div class="text-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="form-group w-25">
@@ -54,7 +54,7 @@
                                         </div>
                                     </div>
                                     @error('preview_image')
-                                        <div class="text-danger mt-3">Это поля необходимо заполнить {{ $message }}</div>
+                                        <div class="text-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="form-group w-25 mb-4">
@@ -69,7 +69,7 @@
                                         </div>
                                     </div>
                                     @error('main_image')
-                                        <div class="text-danger mt-3">Это поля необходимо заполнить {{ $message }}</div>
+                                        <div class="text-danger mt-3"> {{ $message }}</div>
                                     @enderror
                                 </div>
 
@@ -83,6 +83,9 @@
                                             value="{{ $category->id }}">{{ $category->title }}</option>
                                     @endforeach
                                 </select>
+                                @error('category_id')
+                                    <div class="text-danger mt-3"> {{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group w-25">
                                 <label>Тэги</label>
@@ -96,6 +99,9 @@
                                         </option>
                                     @endforeach
                                 </select>
+                                @error('tag_ids')
+                                    <div class="text-danger mt-3"> {{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="col-12">
