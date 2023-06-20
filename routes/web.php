@@ -22,7 +22,7 @@ Route::group(['namespace'=> 'Main'], function(){
 
 });
 
-Route::group(['namespace'=> 'Admin', 'prefix' => 'admin'], function() {
+Route::group(['namespace'=> 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function() {
     Route::get('/', [App\Http\Controllers\Admin\IndexController::class, '__invoke'])->name('admin.index');
     Route::group(['namespace' => 'Post', 'prefix'=>'posts'], function(){
         Route::get('/', [App\Http\Controllers\Admin\Post\IndexController::class, '__invoke'])->name('admin.post.index');
@@ -69,3 +69,7 @@ Route::group(['namespace'=> 'Admin', 'prefix' => 'admin'], function() {
         Route::delete('/{user}', [App\Http\Controllers\Admin\User\DeleteController::class, '__invoke'])->name('admin.user.delete');
     });
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -153,6 +153,12 @@
                 </div>
             </li>
             <li class="nav-item">
+                <form action="{{route('logout')}}" method="post">
+                    @csrf
+                    <input type="submit" class="btn btn-outline-primary" value="Выйти">
+                </form>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                     <i class="fas fa-expand-arrows-alt"></i>
                 </a>
