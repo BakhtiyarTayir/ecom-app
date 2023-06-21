@@ -172,7 +172,7 @@
     </nav>
     <!-- /.navbar -->
 
-    @include('admin.includes.sidebar')
+    @include('personal.includes.sidebar')
 
     @yield('content')
 
