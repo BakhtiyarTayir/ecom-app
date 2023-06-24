@@ -54,6 +54,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Имя</th>
+                                        <th>E-mail</th>
                                         <th>Дата</th>
                                         <th colspan="3" class="text-center">Действие</th>
                                     </tr>
@@ -63,6 +64,7 @@
                                             <tr>
                                                 <td>{{ $user->id }}</td>
                                                 <td> {{ $user->name }}</td>
+                                                <td> {{ $user->email }}</td>
                                                 <td> {{ $user->created_at }}</td>
                                                 <td><a href="{{ route('admin.user.show', $user->id)  }}"><i class="fa fa-eye"></i></a></td>
                                                 <td><a href="{{ route('admin.user.edit', $user->id)  }}"><i class="far fa-edit"></i></a></td>
