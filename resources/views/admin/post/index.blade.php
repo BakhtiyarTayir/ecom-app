@@ -54,6 +54,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Название</th>
+                                        <th>Категория</th>
                                         <th>Дата</th>
                                         <th colspan="3" class="text-center">Действие</th>
                                     </tr>
@@ -63,6 +64,7 @@
                                             <tr>
                                                 <td>{{ $post->id }}</td>
                                                 <td> {{ $post->title }}</td>
+                                                <td> {{ $post->category->title }}</td>
                                                 <td> {{ $post->created_at }}</td>
                                                 <td><span class="tag tag-success">0</span></td>
                                                 <td><a href="{{ route('admin.post.show', $post->id)  }}"><i class="fa fa-eye"></i></a></td>
