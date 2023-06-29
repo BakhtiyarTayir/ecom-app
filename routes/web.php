@@ -18,7 +18,13 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::group(['namespace'=> 'Main'], function(){
-    Route::get('/', [App\Http\Controllers\Main\IndexController::class, '__invoke']);
+    Route::get('/', [App\Http\Controllers\Main\IndexController::class, '__invoke'])->name('main.index');
+
+});
+
+Route::group(['namespace'=> 'Post', 'prefix' => 'posts'], function(){
+    Route::get('/', [App\Http\Controllers\Post\IndexController::class, '__invoke'])->name('post.index');
+    Route::get('/{post}', [App\Http\Controllers\Post\ShowController::class, '__invoke'])->name('post.show');
 
 });
 
