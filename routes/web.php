@@ -25,6 +25,9 @@ Route::group(['namespace'=> 'Main'], function(){
 Route::group(['namespace'=> 'Post', 'prefix' => 'posts'], function(){
     Route::get('/', [App\Http\Controllers\Post\IndexController::class, '__invoke'])->name('post.index');
     Route::get('/{post}', [App\Http\Controllers\Post\ShowController::class, '__invoke'])->name('post.show');
+    Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], function (){
+        Route::post('/', [\App\Http\Controllers\Post\Comment\StoreController::class, '__invoke'])->name('post.comment.store');
+    });
 
 });
 
