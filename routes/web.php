@@ -29,6 +29,10 @@ Route::group(['namespace'=> 'Post', 'prefix' => 'posts'], function(){
         Route::post('/', [\App\Http\Controllers\Post\Comment\StoreController::class, '__invoke'])->name('post.comment.store');
     });
 
+    Route::group(['namespace' => 'Like', 'prefix' => '{post}/likes'], function (){
+        Route::post('/', [\App\Http\Controllers\Post\Liked\StoreController::class, '__invoke'])->name('post.liked.store');
+    });
+
 });
 
 
@@ -38,7 +42,7 @@ Route::group(['namespace'=> 'Personal', 'prefix' => 'personal', 'middleware' => 
     });
 
     Route::group(['namespace' => 'Liked', 'prefix' => 'likes'], function (){
-        Route::get('/', [\App\Http\Controllers\Personal\Liked\IndexController::class, '__invoke'])->name('personal.liked.index');
+        Route::get('/', [\App\Http\Controllers\Personal\Liked\StoreController::class, '__invoke'])->name('personal.liked.index');
         Route::delete('/{post}', [\App\Http\Controllers\Personal\Liked\DeleteController::class, '__invoke'])->name('personal.liked.delete');
     });
     Route::group(['namespace' => 'Main', 'prefix' => 'comments'], function (){

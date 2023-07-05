@@ -53,7 +53,13 @@
                             <a class="nav-link" href="#"><span class="flag-icon flag-icon-squared rounded-circle flag-icon-gb"></span> Eng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Download</a>
+                            @guest()
+                                <a class="nav-link" href="{{ route('personal.main.index') }}">Войти</a>
+                            @endguest
+                            @auth()
+                                <a class="nav-link" href="{{ route('personal.main.index') }}">Личный кабинет</a>
+                            @endauth
+
                         </li>
                     </ul>
                 </div>
@@ -142,7 +148,7 @@
     <script src="{{ asset('assets/vendors/aos/aos.js')}}"></script>
     <script src="{{ asset('assets/js/main.js')}}"></script>
     <script>
-        AOS.init({ 
+        AOS.init({
             duration: 1000
         });
       </script>

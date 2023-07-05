@@ -18,6 +18,21 @@
             </section>
             <div class="row">
                 <div class="col-lg-9 mx-auto">
+                    <section>
+                        <form action="{{ route('post.liked.store', $post->id) }}" method="post">
+                            @csrf
+                            <button class="border-0 bg-transparent">
+                                @auth()
+                                    @if(auth()->user()->likedPosts->contains($post->id))
+                                        <i class="fas fa-heart"></i>
+                                    @else
+                                        <i class="far fa-heart"></i>
+                                    @endif
+                                @endauth
+                            </button>
+                        </form>
+                    </section>
+                    @if($relatedPosts->count() > 0)
                     <section class="related-posts">
                         <h2 class="section-title mb-4" data-aos="fade-up">Related Posts</h2>
                         <div class="row">
@@ -32,11 +47,19 @@
                             @endforeach
                         </div>
                     </section>
+                    @endif
                     <section class="comment-section">
+                        <h4 class="faq-title">Comments {{$post->comments->count()}}</h4>
                         @foreach($post->comments as $comment)
+
                         <div class="card mt-4" >
-                            <div class="card-body">
+                            <div class="card-header d-flex justify-content-between">
                                 <h5 class="card-title">{{ $comment->user->name }}</h5>
+                                <span class="date small">{{ $comment->dateAsCarbon->diffForHumans() }}</span>
+                            </div>
+                            <div class="card-body">
+
+
                                 <p class="card-text">
                                     {{$comment->message}}
                                 </p>
@@ -44,6 +67,11 @@
                         </div>
                         @endforeach
                     </section>
+                    @if(auth()->user() == null)
+                        <p>Войдите чтобы оставить комментарий</p>
+                        <a href="{{ route('login') }}">вход</a>
+                    @endif
+                    @auth()
                     <section class="comment-section">
                         <h2 class="section-title mb-5" data-aos="fade-up">Leave a Reply</h2>
                         <form action="{{ route('post.comment.store', $post->id) }}" method="post">
@@ -62,6 +90,7 @@
                             </div>
                         </form>
                     </section>
+                    @endauth
                 </div>
             </div>
         </div>
