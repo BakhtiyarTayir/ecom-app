@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('post_categories', function (Blueprint $table) {
-            $table->unsignedBigInteger('post_id')->after('title')->nullable();
+        Schema::create('post_categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('post_categories', function (Blueprint $table) {
-            $table->dropColumn('post_id');
-        });
+        Schema::dropIfExists('post_categories');
     }
 };
