@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('post_categories', function (Blueprint $table) {
+        Schema::table('product_categories', function (Blueprint $table) {
             $table->string('slug')->unique()->after('name');
         });
     }

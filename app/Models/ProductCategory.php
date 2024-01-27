@@ -11,6 +11,8 @@ class ProductCategory extends Model
 {
     use HasFactory;
 
+    protected $table = 'product_categories';
+
     public function children(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(ProductCategory::class, 'parent_id');

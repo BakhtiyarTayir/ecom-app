@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Post\Liked;
+namespace App\Http\Controllers\Personal\Liked;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
